@@ -1,6 +1,7 @@
 $(function () {
     getUserInfo();
 
+    // 实现退出功能
     $('#logout').on('click', function () {
         layer.confirm('确认退出登录?', { icon: 3, title: '提示' }, function (index) {
             //do something
@@ -12,6 +13,7 @@ $(function () {
     })
 })
 
+// 获取用户信息并渲染
 function getUserInfo() {
     $.ajax({
         method: 'GET',
@@ -29,6 +31,7 @@ function getUserInfo() {
     })
 }
 
+// 渲染用户信息
 function renderAvatar(user) {
     var name = user.nickname || user.username;
     $('#welcome').html('欢迎&nbsp;&nbsp;' + name);
