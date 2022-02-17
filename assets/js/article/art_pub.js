@@ -57,6 +57,7 @@ $(function () {
     })
 })
 
+// 获取文章类别
 function getCate() {
     $.ajax({
         method: 'GET',
@@ -71,6 +72,7 @@ function getCate() {
     })
 }
 
+// 发布新文章
 function publishArticle(fd) {
     $.ajax({
         method: 'POST',
@@ -82,9 +84,9 @@ function publishArticle(fd) {
         processData: false,
         success: function (res) {
             if (res.status !== 0) {
-                return layer.msg('发布文章失败！')
+                return layer.msg(res.message)
             }
-            layer.msg('发布文章成功！')
+            layer.msg(res.message)
             // 发布文章成功后，跳转到文章列表页面
             location.href = '/article/art_list.html'
         }
